@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <form action = "/anime", method = "POST">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Enter Your Fav Anime</label>
+          <input type="text" class="form-control" name = "input" id="exampleInputEmail1" aria-describedby="emailHelp">
+          
+        </div>
+       
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">S No</th>
+            <th scope="col">Anime</th>
+            <th scope="col">Genre</th>
+            <th scope="col">reating</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for h  in  n %}
+          <tr>
+            <th scope="row">{{loop.index}}</th>
+            <td>{{h}}</td>
+            <td>{{g[loop.index - 1]}}</td>
+            <td>{{r[loop.index - 1]}}</td>
+          </tr>
+          {% endfor %}
+     
+        </tbody>
+      </table>
+</div>
+
+
+{% endblock body %}
